@@ -25,7 +25,7 @@ namespace GA_KP
         public int numberItems;
 
         public List<Item> Items;
-        public GAKP(List<Item> k, int limit) : base(1000)
+        public GAKP(List<Item> k, int limit) : base(10000)
         {
             MaxWeight = limit;
             numberItems = k.Count();
@@ -168,7 +168,7 @@ namespace GA_KP
             };
 
             GAKP kp = new GAKP(items, 6404180);
-            kp.solve(5);
+            kp.solve(10);
             Console.WriteLine(kp.Get1stInGenePool().Gene.insideItems.Sum(n => n.Value));
             Console.ReadKey();
             //optimal profit of 13549094

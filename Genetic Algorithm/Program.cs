@@ -37,15 +37,15 @@ namespace GeneticAlgorithm
         }
         void Mating()
         {
-            for (int i=0; i< GenePoolSize;i++)
-            {
+            Parallel.For(0, GenePoolSize,
+                i=>{
                 DNA<T> d1=FretchDNA();
                 DNA<T> d2 = FretchDNA();
                 DNA<T> child = MakeChild(d1, d2);
                 Mutate(child);
                 FitTest(child);
                 tmp.Add(child);
-            }
+            });
 
         }
         protected DNA<T> FretchDNA()
